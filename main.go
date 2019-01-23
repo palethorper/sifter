@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/darron/sifter/commands"
-//	"log"
-//	"log/syslog"
+	//	"log"
+	//	"log/syslog"
 	"os"
 	"runtime"
 )

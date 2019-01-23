@@ -46,4 +46,4 @@ consul:
 consul_kill:
 	pkill consul
 
-release: clean build gziposx clean linux gziplinux windows zipwindows clean
+release: clean build gziposx clean linux gziplinux clean windows zipwindows clean
