@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/darron/sifter/commands"
-	"log"
-	"log/syslog"
+//	"log"
+//	"log/syslog"
 	"os"
 	"runtime"
 )
@@ -27,10 +27,10 @@ var (
 )
 
 func main() {
-	logwriter, e := syslog.New(syslog.LOG_NOTICE, "sifter")
-	if e == nil {
-		log.SetOutput(logwriter)
-	}
+	// logwriter, e := syslog.New(syslog.LOG_NOTICE, "sifter")
+	// if e == nil {
+	// 	log.SetOutput(logwriter)
+	// }
 
 	args := os.Args[1:]
 	for _, arg := range args {
