@@ -18,6 +18,7 @@ format:
 
 clean:
 	rm -f bin/sifter || true
+	rm -f bin/sifter.exe || true
 
 build: clean
 	go build -ldflags "$(BUILD_FLAGS)" -o bin/sifter main.go
@@ -29,6 +30,12 @@ gziposx:
 linux: clean
 	GOOS=linux GOARCH=amd64 go build -ldflags "$(BUILD_FLAGS)" -o bin/sifter main.go
 
+windows: clean
+	GOOS=windows GOARCH=amd64 go build -ldflags "$(BUILD_FLAGS)" -o bin/sifter.exe main.go
+
+zipwindows:
+	cd bin; zip -9 -y -r -q ./sifter-$(SIFTER_VERSION)-windows-amd64.zip ./sifter.exe
+
 gziplinux:
 	gzip bin/sifter
 	mv bin/sifter.gz bin/sifter-$(SIFTER_VERSION)-linux-amd64.gz
@@ -39,4 +46,4 @@ consul:
 consul_kill:
 	pkill consul
 
-release: clean build gziposx clean linux gziplinux clean
+release: clean build gziposx clean linux gziplinux windows zipwindows clean
